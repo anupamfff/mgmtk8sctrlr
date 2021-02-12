@@ -58,10 +58,13 @@ kubectl -n infiotmgmtproxy apply -f https://raw.githubusercontent.com/anupamfff/
 ``` 
 
 4. Create the lan device service configmap
-```
+
 Down the sample configmap and customize as per your requirements
+```
 wget https://raw.githubusercontent.com/anupamfff/mgmtk8sctrlr/master/mgmtk8sctrlr-config-example.yaml
+```
 Customize the local copy "mgmtk8sctrlr-config-example.yaml" as per your requirements and apply
+```
 kubectl -n infiotmgmtproxy apply -f ./mgmtk8sctrlr-config-example.yaml
 ``` 
 
