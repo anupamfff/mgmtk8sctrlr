@@ -56,8 +56,8 @@ spec:
         image: gcr.io/infiot-public-images/mgmtk8sctrlr:latest
         imagePullPolicy: Always
         volumeMounts:
-          - name: mgmtk8sctrlr-config-volume
-            mountPath: "/etc/config"
+        - name: mgmtk8sctrlr-config-volume
+          mountPath: "/etc/config"
         ports:
           - containerPort: 8080
         env:
