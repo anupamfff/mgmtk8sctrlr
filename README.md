@@ -53,12 +53,18 @@ kubectl -n infiotmgmtproxy \
 
 ```
 kubectl -n infiotmgmtproxy apply -f https://raw.githubusercontent.com/anupamfff/mgmtk8sctrlr/master/traefik-crd.yaml
-
 kubectl -n infiotmgmtproxy apply -f https://raw.githubusercontent.com/anupamfff/mgmtk8sctrlr/master/traefik-deployment.yaml
 
-```
+``` 
 
-4. Deploy the mgmtk8sctrl in the "infiotmgmtproxy" namespace
+4. Create the lan device service configmap
+```
+Down the sample configmap and customize as per your requirements
+kubectl -n infiotmgmtproxy apply -f https://raw.githubusercontent.com/anupamfff/mgmtk8sctrlr/master/mgmtk8sctrlr-config-example.yaml
+``` 
+
+
+5. Deploy the mgmtk8sctrl in the "infiotmgmtproxy" namespace
 
 ```
 kubectl -n infiotmgmtproxy apply -f https://raw.githubusercontent.com/anupamfff/mgmtk8sctrlr/master/mgmtk8sctrlr-deployment.yaml
