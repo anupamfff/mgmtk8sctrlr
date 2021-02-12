@@ -47,7 +47,7 @@ rules:
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
-  name: traefik-ingress-controller2
+  name: traefik-ingress-controller
   namespace: infiotmgmtproxy
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -61,7 +61,7 @@ subjects:
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: traefik-ingress-controller2
+  name: traefik-ingress-controller
   namespace: infiotmgmtproxy
 ---
 kind: Deployment
