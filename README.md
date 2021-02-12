@@ -1,7 +1,12 @@
+<!--******************************************
+ * Copyright (c) 2020 Infiot Inc.
+ * All rights reserved.
+*********************************************-->
+
 ### Assumptions and Prerequisites
 1. You are deploying mgmtk8sctrlr in the "infiotmgmtproxy" namespace for the MSP tenant "acme". 
 2. You have already created "infiotmgmtproxy" namespace in your k8s cluster.
-The MSP tenant portal is live.
+3. The MSP tenant portal [https://acme.infiot.net] is live.
 3. You have created a node-pool dedicated for hosting Infiot's mgmtproxy gateway with following labels and taints
 ```
 Taints:             infiot.com/mgmtproxy=mgmtgw-nodes:NoExecute
@@ -39,6 +44,9 @@ Labels:             infiot.com/mgmtproxy=mgmtgw-nodes
 kubectl -n infiotmgmtproxy \
     create secret generic store-mgmtk8sctrlr \
     --from-literal=token=<SECRET_FROM_STEP_1>
+kubectl -n infiotmgmtproxy \
+    create secret generic store-mgmtk8sctrlr \
+    --from-literal=url=https://acme.infiot.net
 ```
 
 3. Deploy the Traefik load balancer in the "infiotmgmtproxy" namespace
@@ -47,5 +55,12 @@ kubectl -n infiotmgmtproxy \
 kubectl -n infiotmgmtproxy apply -f https://raw.githubusercontent.com/anupamfff/mgmtk8sctrlr/master/traefik-crd.yaml
 
 kubectl -n infiotmgmtproxy apply -f https://raw.githubusercontent.com/anupamfff/mgmtk8sctrlr/master/traefik-deployment.yaml
+
+```
+
+4. Deploy the mgmtk8sctrl in the "infiotmgmtproxy" namespace
+
+```
+kubectl -n infiotmgmtproxy apply -f https://raw.githubusercontent.com/anupamfff/mgmtk8sctrlr/master/mgmtk8sctrlr-deployment.yaml
 
 ```
