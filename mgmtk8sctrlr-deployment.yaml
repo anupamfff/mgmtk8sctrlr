@@ -57,7 +57,7 @@ spec:
         imagePullPolicy: Always
         volumeMounts:
         - name: mgmtk8sctrlr-config-volume
-          mountPath: "/etc/config"
+          mountPath: "/etc/mgmtk8sctrlr-config"
         ports:
           - containerPort: 8080
         env:
