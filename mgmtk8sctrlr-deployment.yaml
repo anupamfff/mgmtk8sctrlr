@@ -49,7 +49,7 @@ spec:
       serviceAccountName: mgmtk8sctrlr
       volumes:
         - name: mgmtk8sctrlr-config-volume
-          configmap:
+          configMap:
             name: mgmtk8sctrlr-config
       containers:
       - name: mgmtk8sctrlr
