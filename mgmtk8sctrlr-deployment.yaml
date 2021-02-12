@@ -47,10 +47,17 @@ spec:
     spec:
       terminationGracePeriodSeconds: 60
       serviceAccountName: mgmtk8sctrlr
+      volumes:
+        - name: mgmtk8sctrlr-config-volume
+          configmap:
+            name: mgmtk8sctrlr-config
       containers:
       - name: mgmtk8sctrlr
         image: gcr.io/infiot-public-images/mgmtk8sctrlr:latest
         imagePullPolicy: Always
+        volumeMounts:
+        - name: mgmtk8sctrlr-config-volume
+            mountPath: /etc/config
         ports:
           - containerPort: 8080
         env:
@@ -80,6 +87,8 @@ spec:
             value: infiot.com/mgmtproxy
           - name: INF_MGMTGW_NODE_SELECTOR_VALUE
             value: mgmtgw-nodes
+          - name: INF_LAN_DEVICE_SVC_CONFIGMAP
+            value: "/etc/mgmtk8sctrlr-config"
           - name: INF_K8S_PODIP
             valueFrom:
               fieldRef:
