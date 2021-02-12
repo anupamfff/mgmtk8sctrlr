@@ -4,15 +4,6 @@ metadata:
   name: mgmtk8sctrlr
   namespace: infiotmgmtproxy
 ---
-kind: ClusterRole
-apiVersion: rbac.authorization.k8s.io/v1beta1
-metadata:
-  name: infiotmgmtproxy-admin
-rules:
-- apiGroups: ["", "extensions", "apps"]
-  resources: ["*"]
-  verbs: ["*"]
----
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
